@@ -5,6 +5,8 @@
 
 Archivos editables (no comprimidos) en carpeta "app". estilos en formato SCSS. para hacer ajustes es necesario tener YEOMAN instalado. se hace el ajsute en la carpeta "app" y se vuelve a comprimir en la carpeta "dist". en la carpeta "dist" está el html listo para producción (comprimidos los estilos y los js).
 
+estructura estilos: koi.scss (estilos particulares para koi) y main.scsss (estilos generales de plantilla restaurantes orientales)
+
 <b>---- herramientas de desarrollo utilizadas:</b>
 
     YEOMAN: http://yeoman.io/
