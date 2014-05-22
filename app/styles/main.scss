@@ -1,0 +1,865 @@
+// bower:scss
+@import "../../bower_components/bootstrap-sass-official/vendor/assets/stylesheets/bootstrap.scss";
+// endbower
+
+.browsehappy {
+    margin: 0.2em 0;
+    background: #ccc;
+    color: #000;
+    padding: 0.2em 0;
+}
+
+
+// ---------------------------- MIXINS
+
+/* mixins generales */
+@mixin txt-hide {
+    overflow:hidden;
+    text-indent:-9000px;
+    display:block;
+}
+
+/* mixins botones */
+@mixin btn {
+    border-radius: 0;
+    border: 0;
+}
+
+/* mixins tabs */
+
+
+/* mixins media queries */
+@mixin breakpoint($point) {
+    @if $point == xl {
+        @media (max-width: 1365px) { @content; }
+    }
+    @if $point == lrg {
+        @media (max-width: 1199px) { @content; }
+    }
+    @else if $point == md {
+        @media (max-width: 991px) { @content; }
+    }
+    @else if $point == sm {
+        @media (max-width: 767px)  { @content; }
+    }
+    @else if $point == xs {
+        @media (max-width: 550px)  { @content; }
+    }
+    @else if $point == xxs {
+        @media (max-width: 400px)  { @content; }
+    }
+}
+
+
+// ---------------------------- VARIABLES
+
+
+
+
+// ---------------------------- GENERAL
+*, *:after, *:before {
+    -moz-box-sizing: border-box; 
+}
+.hidden- {
+    display: none;
+}
+/* font type variables */
+$txt-general: 'Karla', 'sans-serif';
+
+/* --- TOP-BAR --- */
+.top-bar-zona-k {
+    background: #0b1a21;
+    color: #fff;
+    font-family: $txt-general;
+    text-transform: uppercase;
+    font-size: 0.786em;
+    letter-spacing: 0.225em;
+    border: solid 1px #fff;
+    a {
+        color: #fff;
+    }
+    .dropdown-menu {
+        background: #0b1a21;
+        font-size: 1em;
+        li {
+            a {
+                padding: 5px 15px;
+                color: #fff;
+                &:hover {
+                    background: #2c3438;
+                }
+            }
+        }
+    }
+    .wrapper-select-restaurantes {
+        padding-right: 0;
+        @include breakpoint(sm) { 
+            display: none;
+        }
+        .logo-zona-k {
+            border-right: solid 1px #fff;
+            padding: 10px 0;
+            width: 90px;
+            float: left;
+        }
+        .select-restaurantes {
+            float: left;
+            padding: 10px 0 10px 20px;
+        }
+    }
+
+
+    .wrapper-select-reservas {
+        padding: 10px 15px;
+        text-align: right;
+        border-right: dashed 1px #fff;
+        @include breakpoint(xs) { 
+            padding-bottom: 25px;
+            padding-left: 5px;
+            padding-right: 5px;
+        }
+        @include breakpoint(xxs) { 
+            padding-left: 5px;
+            padding-right: 5px;
+            padding-bottom: 5px;
+        }
+        .select-restaurantes {
+            padding: 0;
+        }
+        .dropdown-menu {
+            left: auto;
+            right: 0;
+            @include breakpoint(xs) { 
+                left: 0;
+                width: 295px;
+            }
+        }
+        .dropdown {
+            @include breakpoint(md) { 
+                display: none;
+            }
+            &.mobile {
+                display: none;
+                @include breakpoint(md) { 
+                    display: block;
+                    text-align: center;
+                }
+            }
+        }
+
+
+    }
+    .wrapper-link-daportare {
+        padding: 10px 5px;
+        position: relative;
+        text-align: right;
+        @include breakpoint(xs) { 
+            text-align: center;
+        }
+        span {
+            padding-right: 45%;
+            @include breakpoint(lrg) {
+                padding-right: 0;
+                display: block;
+                padding-left: 10px;
+                text-align: left;
+            }
+            @include breakpoint(xs) {
+                text-align: center;
+            }
+        }
+        a {
+            &:hover {
+                img {
+                    opacity: 0.8;
+                }
+            }
+        }
+        .wrapper-img {
+            background: #f64c07;
+            border-left: solid 1px #fff;
+            border-bottom: solid 1px #fff;
+            width: 120px;
+            position: absolute;
+            right: 0;
+            top: 0;
+            height: 45px;
+            z-index: 5;
+            text-align: center;
+            padding-top: 10px;
+            @include breakpoint(xs) { 
+                display: none;
+            }
+        }
+        .mobile {
+            display: none;
+            @include breakpoint(xs) { 
+                display: inline-block;
+                text-decoration: underline;
+                &:hover {
+                    color: #f64c07;
+                }
+            }
+        }
+
+
+    }
+}
+
+
+
+/* grid fotos masonry */
+.grid-container {
+    margin-left: 215px;
+    @include breakpoint(sm) { 
+        margin-left: 0;
+    }
+}
+#grid {
+    margin-bottom: 40px;
+    .grid-sizer {
+        width: 31%;
+        @include breakpoint(lrg) { 
+            width: 31%;
+        }
+        @include breakpoint(md) { 
+            width: 30%;
+        }
+        @include breakpoint(xs) { 
+            width: 45%;
+        }
+        @include breakpoint(xxs) { 
+            width: 92%;
+        }
+    }
+    .item {
+        width: 31%;
+        margin-bottom: 15px;
+        position: relative;
+        @include breakpoint(lrg) { 
+            width: 31%;
+        }
+        @include breakpoint(md) { 
+            width: 30%;
+        }
+        @include breakpoint(xs) { 
+            width: 45%;
+        }
+        @include breakpoint(xxs) { 
+            width: 92%;
+        }
+        .icon-ampliar {
+            z-index: -5;
+            width: 40px;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            margin-left: -20px;
+            margin-top: -20px;
+            img {
+                width: auto;
+            }
+        }
+    }
+    img {
+        width: 100%;
+    }
+    .more {
+        text-align: center;
+        width: 100%;
+        margin: 40px 0;
+        height: 30px;
+        left: 0 !important;
+        display: inline-block;
+    }
+    .icon {
+        display: inline-block;
+        img {
+            width: auto;
+        }
+        
+    }
+    .txt {
+        margin-top: 5px;
+        display: block;
+    }
+    .wrapper-item {
+        &:hover {
+            .item {
+                .icon-ampliar {
+                    z-index: 5;
+                    img {
+                        opacity: 1;
+                    }
+                }
+                img {
+                    opacity: 0.3;
+                }
+            }
+        }
+            
+    }
+}
+
+/* --- FOOTER --- */
+.main-footer {
+
+    @include breakpoint(sm) { 
+        text-align: center;
+    }
+    .zonak {
+        @include breakpoint(sm) { 
+            padding-top: 25px;
+        }
+        p {
+            font-size: 1.286em;
+        }
+        a {
+            text-transform: uppercase;
+            font-weight: 700;
+            text-decoration: underline;
+            letter-spacing: 0.225em;
+        }
+    }
+    .links {
+        padding-top: 5px;
+        ul {
+            list-style-type: none;
+            padding-left: 0;
+            text-align: right;
+            @include breakpoint(sm) { 
+                text-align: center;
+            }
+        }
+    }
+    .logo {
+        overflow: hidden;
+    }
+
+}
+
+
+
+
+// ---------------------------- ORIENTAL
+
+.oriental {
+
+    /* --- GENERAL --- */
+    
+    /* menú-principal */
+    .main-menu {
+        padding: 10px 0 0 0;
+        position: fixed;
+        top: 38px;
+        width: 215px;
+        z-index: 100;
+        text-align: center;
+        @include breakpoint(sm) { 
+            top: auto;
+            width: auto;
+            position: relative;
+        }
+        .navbar-collapse {
+            @include breakpoint(sm) { 
+                text-align: center; 
+            }
+            li {
+                &.mobile {
+                    display: none;
+                    @include breakpoint(sm) { 
+                        display: inline-block; 
+                        border-bottom: 0; 
+                    }
+                    a {
+                        &:hover {
+                            opacity: 0.8;
+                        }
+                    }
+                }
+                .icon {
+                    display: block;
+                    padding-bottom: 5px;
+                    @include breakpoint(sm) { 
+                        display: none;
+                    }
+                }
+                a {
+                    &:hover {
+                        .icon {
+                            opacity: 0.8;
+                        }
+                    }
+                }
+            }
+            .zonak {
+                width: 100%;
+                margin-top: 40px;
+                float: left;
+                text-transform: none;
+                @include breakpoint(sm) { 
+                    margin-top: 0;
+                }
+                .icon {
+                    padding: 5px 0;
+                    display: block;
+                }
+                a {
+                    text-transform: uppercase;
+                }
+            }
+        }
+        
+    }
+    .nav > li > a:hover {
+        background-color: transparent;
+    }
+    .nav > li > a {
+        padding: 25px 0px;
+        margin: 0 15px;
+    }
+    .navbar-nav {
+        width: 100%;
+        @include breakpoint(sm) { 
+            margin: 0;
+        }
+    }
+    .navbar-nav > li {
+        float: none;
+    }
+    .navbar-brand {
+        height: auto;
+        padding: 5px 15px;
+        float: none;
+        @include breakpoint(sm) { 
+            float: left;
+        }
+        @include breakpoint(xs) { 
+            width: 140px;
+        }
+        img {
+            @include breakpoint(xs) { 
+                width: 100%;
+            }
+        }
+    }
+    .navbar-toggle {
+        margin-top: 25px;
+        .icon-bar {
+            width: 30px;
+            height: 3px;       
+        }
+    }
+    .navbar > .container .navbar-brand, .navbar > .container-fluid .navbar-brand {
+        float: none;
+        margin: 0;
+
+    }
+    .navbar-header {
+        text-align: center;
+        width: 100%;
+        padding-bottom: 40px;
+        border-bottom: solid 1px #f2f2f2;
+        @include breakpoint(sm) { 
+            padding-top: 30px;
+            padding-bottom: 10px;
+        }
+        @include breakpoint(xs) { 
+            padding-top: 40px;
+        }
+    }
+    .navbar-collapse {
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+
+    /* footer */
+    .main-footer {
+        margin-left: 215px;
+        padding: 10px 0 0 0;
+        margin-top: 20px;
+        @include breakpoint(sm) { 
+            margin-left: 0;
+        }
+        .credits {
+            text-align: center;
+            padding-top: 10px;
+            margin-top: 5px;
+        }
+        .logo {
+            p {
+                padding-top: 5px;
+                float: left;
+                @include breakpoint(lrg) { 
+                    float: none;
+                }
+            }
+            img {
+                float: left;
+                margin-right: 20px;
+                @include breakpoint(lrg) { 
+                    float: none;
+                }
+            }
+        }
+        .zonak {
+            text-align: center;
+            padding-top: 15px;
+            margin-top: 15px;
+            padding-bottom: 15px;
+            margin-bottom: 15px;
+            &.mobile {
+                display: none;
+                @include breakpoint(sm) { 
+                    display: block;
+                }
+            }
+        }
+        li {
+            display: inline-block;
+            margin-right: 15px;
+            @include breakpoint(lrg) { 
+                display: block;
+                margin-bottom: 15px;
+            }
+        }
+    }
+
+
+    /* internas */
+    .main-content {
+        margin-top: 51px;
+        @include breakpoint(sm) { 
+           margin-top: 0;
+        }
+    }
+
+    
+
+    /* --- HOME --- */
+    /* slider-principal */
+    .slider-principal {
+        margin-left: 215px;
+        padding: 0;
+        @include breakpoint(sm) { 
+            margin-left: 0;
+        }
+        @include breakpoint(xxs) { 
+            display: none;
+        }
+        .carousel {
+            img {
+                width: 100%;
+            }
+        }
+        .carousel-control {
+            img {
+                width: auto;
+                position: absolute;
+                top: 50%;
+            }
+            &.right {
+                z-index: 50;
+            }
+        }
+    }
+
+
+    /* descripción mobile */
+    .descripcion {
+        margin-left: 215px;
+        @include breakpoint(sm) { 
+            margin-left: 0;
+        }
+        &.mobile {
+            margin-left: 0;
+            display: none;
+            @include breakpoint(xxs) { 
+                display: block;
+            }
+        }
+    }
+
+
+
+    /* banner-daportare */
+    .banner-daportare {
+        margin-left: 215px;
+        margin-right: 15px;
+        margin-bottom: 15px;
+        margin-top: 15px;
+        text-align: center;
+        background-color: #f64c07;
+        color: #fff;
+        @include breakpoint(sm) { 
+            margin-left: 15px;
+        }
+        @include breakpoint(xxs) { 
+            margin-top: 0;
+        }
+        .txt {
+            padding-top: 40px;
+            padding-bottom: 25px;
+        }
+        .logo {
+            padding: 20px 15px;
+        }
+        a {
+            text-decoration: underline;
+        }
+    }
+
+
+    /* quotes */
+    .quotes {
+        padding: 35px 0;
+        text-align: center;
+        overflow: hidden;
+        margin-left: 215px;
+        @include breakpoint(sm) { 
+            margin-left: 0;
+        }
+    }
+
+
+    /* mapa */
+    .mapa {
+        padding: 0;
+        position: relative;
+        margin-left: 215px;
+        overflow: hidden;
+        @include breakpoint(sm) { 
+            margin-left: 0;
+        }
+        .wrapper-mapa {
+            height: 300px;
+            z-index: 0;
+            background-color: #eaeaea;
+            padding: 0;
+        }
+        .info {
+            padding: 25px;
+            @include breakpoint(md) { 
+                padding-left: 0;
+                margin-bottom: 30px;
+            }
+            h2 {
+                margin-top: 0;
+                padding: 15px 0;
+            }
+        }
+        .txt {
+            padding: 0 20px;
+            @include breakpoint(md) { 
+                padding: 20px;
+            }
+        }
+        .locaciones {
+            text-align: center;
+            padding: 15px 0;
+        }
+
+    }
+
+
+    /* --- RESERVAS --- */
+    .reservas {
+        padding: 20px;
+        margin-left: 215px;
+        @include breakpoint(sm) { 
+            margin-left: 0;
+        }
+        p {
+            font-size: 1.071em;
+        }
+        h3 {
+            margin-bottom: 5px;
+        }
+        .txt-caption {
+            font-size: 0.929em;
+            display: block;
+        }
+        .form {
+            a {
+                font-size: 1em;
+            }
+            textarea {
+                min-height: 135px;
+                resize: none;
+            }
+            .btn {
+                width: 100%;
+                margin: 10px 0;
+            }
+            .wrapper-captcha {
+                padding-left: 0;
+                @include breakpoint(sm) { 
+                    padding-right: 0;
+                }
+            }
+            .wrapper-respuesta-captcha {
+                padding-right: 0;
+                @include breakpoint(sm) { 
+                    padding-left: 0;
+                }
+            }
+            .wrapper-fecha {
+                padding-left: 0;
+                @include breakpoint(sm) { 
+                    padding-right: 0;
+                }
+            }
+            .wrapper-invitados {
+                padding-right: 0;
+                @include breakpoint(sm) { 
+                    padding-left: 0;
+                }
+            }
+            .checkbox {
+                margin: 20px 0;
+                font-size: 0.786em;
+                input {
+                    height: auto;
+                }
+            }
+        }
+        .info {
+            text-align: center;
+            @include breakpoint(sm) { 
+                padding-top: 30px;
+            }
+        }
+        .intro {
+            text-align: left;
+        }
+        .info-pedidos {
+            margin-top: 10px;
+        }
+
+        .links {
+            text-align: right;
+            padding: 0;
+            @include breakpoint(md) { 
+                text-align: center;
+            }
+        }
+        .logo {
+            text-align: left;
+            padding-left: 10px;
+            @include breakpoint(md) { 
+                text-align: center;
+                padding-top: 5px;
+            }
+        }
+        .info-reservas {
+            margin-top: 40px;
+        }
+        .info-eventos {
+            margin-top: 40px;
+        }
+        .info-servicio-cliente {
+            margin-top: 40px;
+        }
+        .mensaje {
+            margin-top: 40px;
+        }
+
+    }
+
+
+    /* --- CARTA --- */
+    .menu {
+        margin-left: 215px;
+        @include breakpoint(sm) { 
+            margin-left: 0;
+        }
+        .categories-menu {
+            ul {
+                list-style-type: none;
+                padding-left: 0;
+                overflow: hidden;
+            }
+            li {
+                float: left;
+                margin-right: 3px;
+            }
+            a {
+                padding: 10px;
+                display: inline-block;
+                margin-bottom: 3px;
+            }
+            .line-break {
+                display: block;
+            }
+            .mCustomScrollBox {
+                margin-bottom: 30px;
+            }
+            .mCSB_scrollTools {
+                a {
+                    background-color: transparent;
+                }
+            }
+            
+            
+        }
+        .main-content-menu {
+            .item {
+                padding: 10px 15px;
+            }
+            .name {
+                margin-bottom: 0;
+            }
+            .info {
+                margin-bottom: 0;
+            }
+            .price {
+                line-height: 2.3em;
+            }
+        }
+        .image-menu {
+            padding: 0;
+            img {
+                width: 100%;
+            }
+        }
+        .banner-daportare {
+            margin: 10px 0;
+            padding: 25px 15px;
+            .logo {
+                padding-top: 5px;
+                padding-bottom: 0;
+            }
+            .txt {
+                padding-top: 5px;
+            }
+        }
+
+
+
+
+    }
+
+    
+
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
