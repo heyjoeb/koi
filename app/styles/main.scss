@@ -176,9 +176,9 @@ $txt-general: 'Karla', 'sans-serif';
             }
         }
         .wrapper-img {
-            background: #f64c07;
-            border-left: solid 1px #fff;
-            border-bottom: solid 1px #fff;
+            background: #fff;
+            border-left: solid 1px #000;
+            border-bottom: solid 1px #000;
             width: 120px;
             position: absolute;
             right: 0;
@@ -590,7 +590,6 @@ $txt-general: 'Karla', 'sans-serif';
         margin-bottom: 15px;
         margin-top: 15px;
         text-align: center;
-        background-color: #f64c07;
         color: #fff;
         @include breakpoint(sm) { 
             margin-left: 15px;
