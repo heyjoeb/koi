@@ -210,13 +210,12 @@ $txt-general: 'Karla', 'sans-serif';
 
 /* grid fotos masonry */
 .grid-container {
-    margin-left: 215px;
+    margin-left: 200px;
     @include breakpoint(sm) { 
         margin-left: 0;
     }
 }
 #grid {
-    margin-bottom: 40px;
     .grid-sizer {
         width: 31%;
         @include breakpoint(lrg) { 
@@ -322,7 +321,6 @@ $txt-general: 'Karla', 'sans-serif';
         }
     }
     .links {
-        padding-top: 5px;
         ul {
             list-style-type: none;
             padding-left: 0;
@@ -434,9 +432,6 @@ $txt-general: 'Karla', 'sans-serif';
         @include breakpoint(sm) { 
             float: left;
         }
-        @include breakpoint(xs) { 
-            width: 140px;
-        }
         img {
             @include breakpoint(xs) { 
                 width: 100%;
@@ -489,7 +484,6 @@ $txt-general: 'Karla', 'sans-serif';
         }
         .logo {
             p {
-                padding-top: 5px;
                 float: left;
                 @include breakpoint(lrg) { 
                     float: none;
@@ -587,7 +581,7 @@ $txt-general: 'Karla', 'sans-serif';
     .banner-daportare {
         margin-left: 215px;
         margin-right: 15px;
-        margin-bottom: 15px;
+        margin-bottom: 0;
         margin-top: 15px;
         text-align: center;
         color: #fff;
@@ -626,7 +620,7 @@ $txt-general: 'Karla', 'sans-serif';
     .mapa {
         padding: 0;
         position: relative;
-        margin-left: 215px;
+        margin-left: 200px;
         overflow: hidden;
         @include breakpoint(sm) { 
             margin-left: 0;
