@@ -653,6 +653,55 @@ body {
 
 
 
+  /* footer */
+    .main-footer {
+        .zonak {
+            border-top: solid 1px #cccccc;
+            border-bottom: solid 1px #cccccc;
+            p {
+                color: #666666;
+                margin-bottom: 10px;
+                font-size: 0.9em;
+            }
+            a {
+                color: #f90510;
+                font-size: $txt-xs;
+                &:hover {
+                    color: #ff9999;
+                }
+            }
+        }
+        .links {
+            padding-top: 12px;
+            a {
+                color: #e30613;
+                font-size: 0.9em;
+                text-decoration: underline;
+                &:hover {
+                    color: #121212;
+                }
+            }
+        }
+        .credits {
+            background-color: #fff;
+            padding-bottom: 15px;
+        }
+        .logo {
+            p {
+                color: #e30613;
+                font-size: 0.9em;
+                padding-top: 16px;
+                @include breakpoint(sm) { 
+                    color: #666666;
+                    font-size: 0.8em;
+                }
+            }
+
+        }
+
+    }
+
+
 
 
 

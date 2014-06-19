@@ -1086,6 +1086,57 @@ $txt-general: 'Karla', 'sans-serif';
 
 
 
+    /* footer */
+    .main-footer {
+        margin-left: 215px;
+        padding: 10px 0 0 0;
+        margin-top: 20px;
+        @include breakpoint(sm) { 
+            margin-left: 0;
+        }
+        .credits {
+            text-align: center;
+            padding-top: 10px;
+            margin-top: 5px;
+        }
+        .logo {
+            p {
+                float: left;
+                @include breakpoint(lrg) { 
+                    float: none;
+                }
+            }
+            img {
+                float: left;
+                margin-right: 20px;
+                @include breakpoint(lrg) { 
+                    float: none;
+                }
+            }
+        }
+        .zonak {
+            text-align: center;
+            padding-top: 15px;
+            margin-top: 15px;
+            padding-bottom: 15px;
+            margin-bottom: 15px;
+            &.mobile {
+                display: none;
+                @include breakpoint(sm) { 
+                    display: block;
+                }
+            }
+        }
+        li {
+            display: inline-block;
+            margin-right: 15px;
+            @include breakpoint(lrg) { 
+                display: block;
+                margin-bottom: 15px;
+            }
+        }
+    }
+
 
 
 
