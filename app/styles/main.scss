@@ -691,6 +691,9 @@ $txt-general: 'Karla', 'sans-serif';
             z-index: 0;
             background-color: #eaeaea;
             padding: 0;
+            img {
+                width: 100%;
+            }
         }
         .info {
             padding: 25px;
